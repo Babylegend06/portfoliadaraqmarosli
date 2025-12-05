@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ms" id="html">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DAR AQMA | Techxy Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
+  <style id="theme-styles">
+    /* Default: Dark Mode */
+    :root {
+      --bg: #0c0a1f;
+      --card-bg: #141228;
+      --text: #f0f0ff;
+      --text-secondary: #ccc;
+      --accent: #6c5ce7;
+      --accent-glow: #8870ff;
+      --glow: 0 0 15px rgba(108, 92, 231, 0.6);
+      --border: rgba(108, 92, 231, 0.2);
+    }
+
+    .light-mode {
+      --bg: #f8f9fa;
+      --card-bg: #ffffff;
+      --text: #212529;
+      --text-secondary: #6c757d;
+      --accent: #6c5ce7;
+      --accent-glow: #8870ff;
+      --glow: 0 0 15px rgba(108, 92, 231, 0.3);
+      --border: rgba(108, 92, 231, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 2rem 1.5rem 4rem;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Header & Toggle */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      background: linear-gradient(90deg, var(--accent-glow), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .theme-toggle {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      width: 52px;
+      height: 28px;
+      border-radius: 14px;
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 0 2px;
+    }
+
+    .toggle-thumb {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--accent);
+      position: absolute;
+      left: 2px;
+      transition: transform 0.3s ease;
+    }
+
+    .light-mode .toggle-thumb {
+      transform: translateX(24px);
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .profile {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 3px solid var(--accent);
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: var(--glow);
+    }
+
+    .profile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(90deg, var(--accent-glow), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Sections */
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8rem;
+      margin: 2.5rem 0 1.5rem;
+      color: var(--accent);
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .skill-tag {
+      background: var(--card-bg);
+      color: var(--accent);
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      border: 1px solid var(--border);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .project-card h3 {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    /* Contact Banner */
+    .contact-banner {
+      background: rgba(37, 211, 102, 0.1);
+      border: 1px solid rgba(37, 211, 102, 0.3);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      margin: 2rem 0;
+      font-weight: 500;
+    }
+
+    .contact-banner a {
+      color: #25D366;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .projects {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">DAR AQMA</div>
+      <div class="theme-toggle" id="themeToggle">
+        <div class="toggle-thumb"></div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="profile">
+        <img src="gambarmuka.jpg" alt="DAR AQMA" onerror="this.src='https://via.placeholder.com/160?text=DAR+AQMA'; this.style.objectFit='cover';">
+      </div>
+      <h1>DAR AQMA BIN ROSLI</h1>
+      <p>Inovator Teknologi & IoT • Founder @ Techxy</p>
+      <div class="contact-banner">
+        🚀 Hubungi saya di 
+        <a href="https://wa.me/60189892155" target="_blank">WhatsApp +60189892155</a>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Kemahiran Utama</h2>
+      <div class="skills">
+        <span class="skill-tag">ESP32 & Arduino</span>
+        <span class="skill-tag">PLC Omron CP1E</span>
+        <span class="skill-tag">Laravel & Firebase</span>
+        <span class="skill-tag">Flutter</span>
+        <span class="skill-tag">OpenCV & AI</span>
+        <span class="skill-tag">PCB Design</span>
+        <span class="skill-tag">IoT & Automasi</span>
+        <span class="skill-tag">Pembaikan Elektronik</span>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Projek Pilihan</h2>
+      <div class="projects">
+        <div class="project-card">
+          <h3>Smart Dobi QR</h3>
+          <p>Sistem IoT: scan QR → bayar → ESP32 aktifkan mesin → WhatsApp notifikasi.</p>
+        </div>
+        <div class="project-card">
+          <h3>ESP32 + PLC Integration</h3>
+          <p>ESP32 baca isyarat PLC Omron CP1E, papar data real-time di Blynk.</p>
+        </div>
+        <div class="project-card">
+          <h3>Auto-Off Signal Moto</h3>
+          <p>Sistem pintar untuk Y15ZR V2: guna MPU6050 & ESP32 untuk matikan signal.</p>
+        </div>
+        <div class="project-card">
+          <h3>Aplikasi Panduan Solat</h3>
+          <p>Flutter + pengenalan suara – ucap "Allahu Akbar" untuk ke langkah seterusnya.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 DAR AQMA BIN ROSLI • Techxy Solutions<br>
+      Portfolio Interaktif | Dibina dengan Teknologi & Kreativiti
+    </footer>
+  </div>
+
+  <script>
+    // Theme Toggle
+    const html = document.getElementById('html');
+    const toggle = document.getElementById('themeToggle');
+    const isLight = localStorage.getItem('theme') === 'light';
+
+    if (isLight) {
+      html.classList.add('light-mode');
+    }
+
+    toggle.addEventListener('click', () => {
+      html.classList.toggle('light-mode');
+      const newTheme = html.classList.contains('light-mode') ? 'light' : 'dark';
+      localStorage.setItem('theme', newTheme);
+    });
+
+    // Optional: Prefers-color-scheme
+    if (!localStorage.getItem('theme')) {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        html.classList.add('light-mode');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+  </script>
+</body>
+</html>
